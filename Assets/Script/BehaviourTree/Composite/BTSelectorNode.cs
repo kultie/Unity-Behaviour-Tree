@@ -4,35 +4,35 @@ namespace Kultie.BTs{
     {
         List<BTNode> childNode;
         BTNode currentNode;
-
+        int currentIndex;
         public BTSelectorNode(List<BTNode> child)
         {
             childNode = child;
+            currentIndex = 0;
         }
 
         public override TreeNodeStatus Update(float dt)
         {
-            bool hasFinish = false;
-            foreach (BTNode node in childNode)
+            if (currentIndex >= childNode.Count)
             {
-                currentNode = node;
-                TreeNodeStatus status = currentNode.Update(dt);
-                switch (status)
-                {
-                    case TreeNodeStatus.FAIL:
-                        continue;
-                    case TreeNodeStatus.SUCCESS:
-                        _nodeStatus = TreeNodeStatus.SUCCESS;
-                        return _nodeStatus;
-                    case TreeNodeStatus.RUNNING:
-                        hasFinish = false;
-                        continue;
-                    default:
-                        continue;
-                }
+                _nodeStatus = TreeNodeStatus.FAIL;
+                return _nodeStatus;
             }
-            _nodeStatus = TreeNodeStatus.FAIL;
-            return _nodeStatus;
+            currentNode = childNode[currentIndex];
+            _nodeStatus = currentNode.Update(dt);
+            switch (_nodeStatus)
+            {
+                case TreeNodeStatus.FAIL:
+                    currentIndex++;
+                    _nodeStatus = TreeNodeStatus.RUNNING;
+                    return _nodeStatus;
+                case TreeNodeStatus.RUNNING:
+                    return _nodeStatus;
+                case TreeNodeStatus.SUCCESS:
+                    return _nodeStatus;
+                default:
+                    return _nodeStatus;
+            }
         }
     }
 }

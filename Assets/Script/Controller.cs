@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Kultie.BTs;
 public class Controller : MonoBehaviour {
-    BTRepeatUntil testBT;
+    BTSelectorNode testBT;
 	// Use this for initialization
 	void Start () {
         List<BTNode> leafs = new List<BTNode>();
         leafs.Add(new BTLeaf(WalkToDoor));
         leafs.Add(OpenDoorSelector());
         leafs.Add(new BTLeaf(WalkThroughDoor));
-        testBT = new BTRepeatUntil(new BTSequenceNode(leafs),TreeNodeStatus.SUCCESS);
+        testBT = new BTSelectorNode(leafs);
 	}
 	
 	// Update is called once per frame
@@ -23,10 +23,10 @@ public class Controller : MonoBehaviour {
     TreeNodeStatus WalkToDoor(){
         int rand = Random.Range(0, 100);
         Debug.Log(rand);
-        if(rand > 50){
-            return TreeNodeStatus.FAIL;
-        }
-        return TreeNodeStatus.SUCCESS;
+        //if(rand > 50){
+        //    return TreeNodeStatus.FAIL;
+        //}
+        return TreeNodeStatus.FAIL;
     }
 
     BTSelectorNode OpenDoorSelector(){
