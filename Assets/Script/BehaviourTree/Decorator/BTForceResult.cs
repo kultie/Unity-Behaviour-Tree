@@ -18,10 +18,9 @@
         public override TreeNodeStatus Update(float dt)
         {
             _nodeStatus = node.Update(dt);
-            if(_nodeStatus == TreeNodeStatus.RUNNING){
-                return _nodeStatus;
-            }
-            _nodeStatus = desiredStatus;
+            if(_nodeStatus != TreeNodeStatus.RUNNING){
+                _nodeStatus = desiredStatus;
+            }            
             return _nodeStatus;
         }
     }
