@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Kultie.BTs;
 public class Controller : MonoBehaviour {
-    BTSelectorNode testBT;
+    BTSequenceNode testBT;
 	// Use this for initialization
 	void Start () {
         List<BTNode> leafs = new List<BTNode>();
-        leafs.Add(new BTLeaf(DataProcess));
+        leafs.Add(new BTLeaf(AskingForData));
         //leafs.Add(OpenDoorSelector());
-        leafs.Add(new BTLeaf(DataProcess2));
-        testBT = new BTSelectorNode(leafs);
+        leafs.Add(new BTLeaf(CheckingData));
+        leafs.Add(new BTLeaf(ConfirmData));
+        testBT = new BTSequenceNode(leafs);
 	}
 	
 	// Update is called once per frame
@@ -37,7 +38,7 @@ public class Controller : MonoBehaviour {
         return selector;
     }
 
-    TreeNodeStatus OpenDoor(){
+    TreeNodeStatus OpenDoor(float dt){
         int rand = Random.Range(0, 100);
         Debug.Log(rand);
         if (rand > 50)
@@ -49,20 +50,20 @@ public class Controller : MonoBehaviour {
         return TreeNodeStatus.SUCCESS;
     }
 
-    TreeNodeStatus BreakDoor()
+    TreeNodeStatus BreakDoor(float dt)
     {
         Debug.Log("Break door");
         return TreeNodeStatus.SUCCESS;
     }
 
-    TreeNodeStatus WalkThroughDoor()
+    TreeNodeStatus WalkThroughDoor(float dt)
     {
         Debug.Log("Walk through door");
         return TreeNodeStatus.SUCCESS;
     }
 
     int data;
-    TreeNodeStatus DataProcess()
+    TreeNodeStatus DataProcess(float dt)
     {
         if (data >= 50)
         {
@@ -77,7 +78,7 @@ public class Controller : MonoBehaviour {
     }
 
     int data2;
-    TreeNodeStatus DataProcess2()
+    TreeNodeStatus DataProcess2(float dt)
     {
         if (data2 >= 100)
         {
@@ -91,4 +92,32 @@ public class Controller : MonoBehaviour {
         }
     }
 
+    TreeNodeStatus AskingForData(float dt){
+        Debug.Log("Do you have any data");
+        if(Input.GetKeyDown(KeyCode.Z)){
+            return TreeNodeStatus.SUCCESS;
+        }
+        return TreeNodeStatus.RUNNING;
+    }
+
+    TreeNodeStatus CheckingData(float dt){
+        int a = Random.Range(0, 10);
+        Debug.Log(a);
+        if(a > 5){
+            return TreeNodeStatus.SUCCESS;
+        }
+        else{
+            return TreeNodeStatus.FAIL;
+        }
+    }
+
+    TreeNodeStatus ConfirmData(float dt)
+    {
+        Debug.Log("You have correct data");
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            return TreeNodeStatus.SUCCESS;
+        }
+        return TreeNodeStatus.RUNNING;
+    }
 }

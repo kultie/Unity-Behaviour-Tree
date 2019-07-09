@@ -4,6 +4,6 @@
     #endregion
 
     #region Delegate
-    public delegate TreeNodeStatus NodeDelegate();
+    public delegate TreeNodeStatus NodeDelegate(float dt);
     #endregion
 }
