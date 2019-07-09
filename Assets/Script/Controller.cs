@@ -7,9 +7,9 @@ public class Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         List<BTNode> leafs = new List<BTNode>();
-        leafs.Add(new BTLeaf(WalkToDoor));
-        leafs.Add(OpenDoorSelector());
-        leafs.Add(new BTLeaf(WalkThroughDoor));
+        leafs.Add(new BTLeaf(DataProcess));
+        //leafs.Add(OpenDoorSelector());
+        leafs.Add(new BTLeaf(DataProcess2));
         testBT = new BTSelectorNode(leafs);
 	}
 	
@@ -59,6 +59,36 @@ public class Controller : MonoBehaviour {
     {
         Debug.Log("Walk through door");
         return TreeNodeStatus.SUCCESS;
+    }
+
+    int data;
+    TreeNodeStatus DataProcess()
+    {
+        if (data >= 50)
+        {
+            return TreeNodeStatus.FAIL;
+        }
+        else
+        {
+            Debug.Log("Data process 1: " + data.ToString());
+            data++;
+            return TreeNodeStatus.RUNNING;
+        }
+    }
+
+    int data2;
+    TreeNodeStatus DataProcess2()
+    {
+        if (data2 >= 100)
+        {
+            return TreeNodeStatus.SUCCESS;
+        }
+        else
+        {
+            Debug.Log("Data process 2: " + data2.ToString());
+            data2++;
+            return TreeNodeStatus.RUNNING;
+        }
     }
 
 }
