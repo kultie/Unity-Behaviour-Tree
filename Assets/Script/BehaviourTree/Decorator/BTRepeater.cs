@@ -1,5 +1,8 @@
 ﻿namespace Kultie.BTs
 {
+    /// <summary>
+    /// Repeater decorator will run the task repeatly amount of times. Supported infinite run
+    /// </summary>
     public class BTRepeater : BTNode
     {
         BTNode node;

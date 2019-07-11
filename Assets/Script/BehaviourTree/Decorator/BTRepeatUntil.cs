@@ -1,5 +1,8 @@
 ﻿namespace Kultie.BTs
 {
+    /// <summary>
+    /// Repeat Until will run a task until desired result is achieved.
+    /// </summary>
     public class BTRepeatUntil : BTNode
     {
         BTNode node;
