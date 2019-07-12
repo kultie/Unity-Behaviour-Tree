@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using UnityEngine;
+using DG.Tweening;
 namespace Kultie.BTs
 {
     public class BTTweenLeaf : BTNode
@@ -10,7 +11,8 @@ namespace Kultie.BTs
         public BTTweenLeaf(Tween _tween, TweenLeafInterupCondition _condition = null, bool _failOnInterupt = false)
         {
             tween = _tween;
-            tween.OnUpdate(OnTweenUpdate).OnComplete(OnTweenComplete).OnKill(OnTweenKill).SetUpdate(UpdateType.Manual);
+            tweenStatus = TreeNodeStatus.RUNNING;
+            tween.OnUpdate(OnTweenUpdate).OnComplete(OnTweenComplete).SetUpdate(UpdateType.Manual);
             condition = _condition;
             failOnInterupt = _failOnInterupt;
         }
@@ -21,13 +23,10 @@ namespace Kultie.BTs
             {
                 if (condition())
                 {
+                    tween.Pause();
                     if (failOnInterupt)
                     {
-                        tween.Kill();
-                    }
-                    else
-                    {
-                        tween.Pause();
+                        tweenStatus = TreeNodeStatus.FAIL;
                     }
                 }
                 else
@@ -35,7 +34,10 @@ namespace Kultie.BTs
                     tween.Play();
                 }
             }
-
+            else
+            {
+                tween.Play();
+            }
             DOTween.ManualUpdate(dt, 0);
             return tweenStatus;
         }
@@ -48,11 +50,6 @@ namespace Kultie.BTs
         void OnTweenUpdate()
         {
             tweenStatus = TreeNodeStatus.RUNNING;
-        }
-
-        void OnTweenKill()
-        {
-            tweenStatus = TreeNodeStatus.FAIL;
         }
     }
 }

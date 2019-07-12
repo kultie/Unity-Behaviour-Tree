@@ -32,11 +32,11 @@
             _nodeStatus = node.Update(dt);
             if (time > 0 && _nodeStatus != TreeNodeStatus.RUNNING)
             {
-                currentTime++;
                 if (currentTime >= time)
                 {
                     return _nodeStatus;
                 }
+                currentTime++;
             }
             _nodeStatus = TreeNodeStatus.RUNNING;
             return _nodeStatus;
