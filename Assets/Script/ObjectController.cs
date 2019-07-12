@@ -8,19 +8,21 @@ public class ObjectController : MonoBehaviour
     public GameObject go;
     public Transform target;
     BTSequenceNode sequenceNode;
-    Tween tween;
 
     private void Start()
     {
+
         List<BTNode> nodes = new List<BTNode>();
-        nodes.Add(BTLeafCreator.CreateConditionLeaf(true));
-        nodes.Add(BTLeafCreator.CreateTweenLeaf(go.transform.DOMove(target.position, 5f), false, EvalData));
+        nodes.Add(BTLeafCreator.CreateTweenLeaf(go.transform.DOMove(target.position, 1f), EvalData, true));
         sequenceNode = new BTSequenceNode(nodes);
     }
 
     private void Update()
     {
-        sequenceNode.Update(Time.deltaTime);
+        if (sequenceNode.nodeStatus == TreeNodeStatus.RUNNING)
+        {
+            sequenceNode.Update(Time.deltaTime);
+        }
     }
 
     int data;
@@ -28,7 +30,6 @@ public class ObjectController : MonoBehaviour
     {
         data = Random.Range(0, 100);
         Debug.Log(data);
-        return data > 10;
+        return data > 90;
     }
-
 }
