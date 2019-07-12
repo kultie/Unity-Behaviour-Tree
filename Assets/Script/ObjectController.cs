@@ -15,7 +15,7 @@ public class ObjectController : MonoBehaviour
 
         List<BTNode> nodes = new List<BTNode>();
         nodes.Add(BTLeafCreator.CreateTweenLeaf(go.transform.DOMove(target.position, 1f), null, true));
-        nodes.Add(BTDecoratorCreator.CreateRepeater(BTLeafCreator.CreateTweenLeaf(go2.transform.DOMove(target.position, 1f), EvalData, true),2));
+        nodes.Add(BTDecoratorCreator.CreateRepeateUntil(BTLeafCreator.CreateTweenLeaf(go2.transform.DOMove(target.position, 1f), EvalData, true),TreeNodeStatus.SUCCESS));
         sequenceNode = new BTSequenceNode(nodes);
     }
 
@@ -32,6 +32,6 @@ public class ObjectController : MonoBehaviour
     {
         data = Random.Range(0, 100);
         Debug.Log(data);
-        return data > 50;
+        return data < 90;
     }
 }

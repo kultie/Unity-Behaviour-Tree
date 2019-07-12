@@ -21,7 +21,7 @@ namespace Kultie.BTs
         {
             if (condition != null)
             {
-                if (condition())
+                if (condition() && !tween.IsComplete())
                 {
                     tween.Pause();
                     if (failOnInterupt)

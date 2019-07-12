@@ -25,6 +25,11 @@ namespace Kultie.BTs
         {
             return new BTRepeater(node, time);
         }
+
+        public static BTRepeatUntil CreateRepeateUntil(BTNode node, TreeNodeStatus desiredStatus)
+        {
+            return new BTRepeatUntil(node,desiredStatus);
+        }
     }
 }
 
