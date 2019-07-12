@@ -17,15 +17,17 @@
         public override TreeNodeStatus Update(float dt)
         {
             _nodeStatus = node.Update(dt);
-            if(_nodeStatus == TreeNodeStatus.RUNNING){
+            if (_nodeStatus == TreeNodeStatus.RUNNING)
+            {
                 return _nodeStatus;
             }
-            if(_nodeStatus != desiredStatus){
+            if (_nodeStatus != desiredStatus)
+            {
                 _nodeStatus = TreeNodeStatus.RUNNING;
                 return _nodeStatus;
             }
             return _nodeStatus;
-            
+
         }
     }
 }

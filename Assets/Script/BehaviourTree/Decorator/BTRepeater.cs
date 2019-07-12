@@ -17,10 +17,12 @@
         {
             node = _node;
             time = _time;
-            if(time > 0){
+            if (time > 0)
+            {
                 currentTime = 0;
             }
-            else{
+            else
+            {
                 currentTime = -1;
             }
         }
@@ -28,9 +30,11 @@
         public override TreeNodeStatus Update(float dt)
         {
             _nodeStatus = node.Update(dt);
-            if(time > 0 && _nodeStatus != TreeNodeStatus.RUNNING){
+            if (time > 0 && _nodeStatus != TreeNodeStatus.RUNNING)
+            {
                 currentTime++;
-                if(currentTime >= time){
+                if (currentTime >= time)
+                {
                     return _nodeStatus;
                 }
             }

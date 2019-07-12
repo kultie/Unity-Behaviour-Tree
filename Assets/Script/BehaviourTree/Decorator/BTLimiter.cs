@@ -22,7 +22,8 @@
 
         public override TreeNodeStatus Update(float dt)
         {
-            if(currentTime >= time){
+            if (currentTime >= time)
+            {
                 _nodeStatus = TreeNodeStatus.FAIL;
                 return _nodeStatus;
             }

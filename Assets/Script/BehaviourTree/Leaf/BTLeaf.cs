@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Kultie.BTs{
+namespace Kultie.BTs
+{
     public class BTLeaf : BTNode
     {
         public NodeDelegate action;
 
-        public BTLeaf(NodeDelegate nodeDelegate){
+        public BTLeaf(NodeDelegate nodeDelegate)
+        {
             action = nodeDelegate;
         }
 

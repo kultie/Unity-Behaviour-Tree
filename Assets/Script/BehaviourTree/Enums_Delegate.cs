@@ -1,8 +1,9 @@
-﻿namespace Kultie.BTs{
+﻿namespace Kultie.BTs
+{
     #region Enum
     public enum TreeNodeStatus { RUNNING, SUCCESS, FAIL }
     public enum ParallelPolicy { NONE, SEQUENCE, SELECTOR }
-    public enum ConditionEvaluateOperator{GREATER, LESSER, GREATEROREQUAL, LESSEROROREQUAL, EQUAL}
+    public enum ConditionEvaluateOperator { GREATER, LESSER, GREATEROREQUAL, LESSEROROREQUAL, EQUAL }
     #endregion
 
     #region Delegate

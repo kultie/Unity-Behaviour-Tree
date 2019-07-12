@@ -1,5 +1,6 @@
 ﻿using System;
-namespace Kultie.BTs{
+namespace Kultie.BTs
+{
     public class BTConditionLeaf : BTNode
     {
         bool val;

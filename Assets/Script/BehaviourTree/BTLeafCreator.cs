@@ -1,17 +1,21 @@
 ﻿using DG.Tweening;
-namespace Kultie.BTs{
+namespace Kultie.BTs
+{
     public class BTLeafCreator
     {
-        public static BTLeaf CreateLeaf(NodeDelegate nodeDelegate){
+        public static BTLeaf CreateLeaf(NodeDelegate nodeDelegate)
+        {
             return new BTLeaf(nodeDelegate);
         }
 
-        public static BTConditionLeaf CreateConditionLeaf(bool val){
+        public static BTConditionLeaf CreateConditionLeaf(bool val)
+        {
             return new BTConditionLeaf(val);
         }
 
-        public static BTTweenLeaf CreateTweenLeaf(Tween tween, bool killOnInterupt, TweenLeafInterupCondition interupCondition = null){
-            return new BTTweenLeaf(tween,killOnInterupt,interupCondition);
+        public static BTTweenLeaf CreateTweenLeaf(Tween tween, bool killOnInterupt, TweenLeafInterupCondition interupCondition = null)
+        {
+            return new BTTweenLeaf(tween, killOnInterupt, interupCondition);
         }
     }
 }

@@ -1,11 +1,15 @@
-﻿namespace Kultie.BTs{
-    public abstract class BTNode{
-        public BTNode(){}
+﻿namespace Kultie.BTs
+{
+    public abstract class BTNode
+    {
+        public BTNode() { }
 
         protected TreeNodeStatus _nodeStatus;
 
-        public TreeNodeStatus nodeStatus{
-            get {
+        public TreeNodeStatus nodeStatus
+        {
+            get
+            {
                 return _nodeStatus;
             }
         }
