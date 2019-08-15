@@ -27,7 +27,7 @@
             }
         }
 
-        public override TreeNodeStatus Update(float dt)
+        public override TreeNodeStatus Run(float dt)
         {
             _nodeStatus = node.Update(dt);
             if (time > 0 && _nodeStatus != TreeNodeStatus.RUNNING)

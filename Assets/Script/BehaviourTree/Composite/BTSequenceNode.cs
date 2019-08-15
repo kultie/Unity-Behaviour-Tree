@@ -9,7 +9,7 @@ namespace Kultie.BTs
             childNode = child;
         }
 
-        public override TreeNodeStatus Update(float dt)
+        public override TreeNodeStatus Run(float dt)
         {
             foreach (var node in childNode)
             {

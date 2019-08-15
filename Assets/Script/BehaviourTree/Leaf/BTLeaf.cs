@@ -12,7 +12,7 @@ namespace Kultie.BTs
             action = nodeDelegate;
         }
 
-        public override TreeNodeStatus Update(float dt)
+        public override TreeNodeStatus Run(float dt)
         {
             _nodeStatus = action(dt);
             return _nodeStatus;

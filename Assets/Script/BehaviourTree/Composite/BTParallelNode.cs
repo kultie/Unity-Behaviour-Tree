@@ -19,7 +19,7 @@ namespace Kultie.BTs
             policy = _policy;
         }
 
-        public override TreeNodeStatus Update(float dt)
+        public override TreeNodeStatus Run(float dt)
         {
             bool haveRunningChild = false;
             successCount = 0;

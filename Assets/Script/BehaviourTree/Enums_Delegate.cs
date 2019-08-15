@@ -1,7 +1,7 @@
 ﻿namespace Kultie.BTs
 {
     #region Enum
-    public enum TreeNodeStatus { RUNNING, SUCCESS, FAIL }
+    public enum TreeNodeStatus { INIT, RUNNING, SUCCESS, FAIL }
     public enum ParallelPolicy { NONE, SEQUENCE, SELECTOR }
     public enum ConditionEvaluateOperator { GREATER, LESSER, GREATEROREQUAL, LESSEROROREQUAL, EQUAL }
     #endregion

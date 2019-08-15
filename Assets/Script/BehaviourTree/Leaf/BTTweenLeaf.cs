@@ -11,13 +11,13 @@ namespace Kultie.BTs
         public BTTweenLeaf(Tween _tween, TweenLeafInterupCondition _condition = null, bool _failOnInterupt = false)
         {
             tween = _tween;
-            tweenStatus = TreeNodeStatus.RUNNING;
+            tweenStatus = TreeNodeStatus.INIT;
             tween.OnUpdate(OnTweenUpdate).OnComplete(OnTweenComplete).SetUpdate(UpdateType.Manual);
             condition = _condition;
             failOnInterupt = _failOnInterupt;
         }
 
-        public override TreeNodeStatus Update(float dt)
+        public override TreeNodeStatus Run(float dt)
         {
             if (condition != null)
             {
@@ -51,7 +51,17 @@ namespace Kultie.BTs
         {
             tweenStatus = TreeNodeStatus.RUNNING;
         }
-    }
+
+		public override void Start()
+		{
+            Debug.Log("Start tween leaf");
+		}
+
+        public override void Finish()
+        {
+            Debug.Log("Finish tween leaf");
+        }
+	}
 }
 
 

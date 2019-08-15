@@ -13,8 +13,6 @@ public class Controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(testBT.nodeStatus == TreeNodeStatus.RUNNING){
-            testBT.Update(Time.deltaTime);
-        }
+        testBT.Update(Time.deltaTime);
 	}
 }

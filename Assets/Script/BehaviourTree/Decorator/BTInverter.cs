@@ -9,7 +9,7 @@
             node = _node;
         }
 
-        public override TreeNodeStatus Update(float dt)
+        public override TreeNodeStatus Run(float dt)
         {
             switch (node.Update(dt))
             {

@@ -13,6 +13,30 @@
                 return _nodeStatus;
             }
         }
-        public abstract TreeNodeStatus Update(float dt);
+        public abstract TreeNodeStatus Run(float dt);
+
+        public TreeNodeStatus Update(float dt){
+            if (_nodeStatus == TreeNodeStatus.RUNNING || _nodeStatus == TreeNodeStatus.INIT)
+            {
+                if (nodeStatus == TreeNodeStatus.INIT)
+                {
+                    Start();
+                }
+                _nodeStatus = Run(dt);
+                if (nodeStatus != TreeNodeStatus.RUNNING)
+                {
+                    Finish();
+                }
+            }
+            return nodeStatus;
+        }
+
+        public virtual void Start(){
+            
+        }
+
+        public virtual void Finish(){
+            
+        }
     }
 }

@@ -15,16 +15,13 @@ public class ObjectController : MonoBehaviour
 
         List<BTNode> nodes = new List<BTNode>();
         nodes.Add(BTLeafCreator.CreateTweenLeaf(go.transform.DOMove(target.position, 1f), null, true));
-        nodes.Add(BTDecoratorCreator.CreateRepeateUntil(BTLeafCreator.CreateTweenLeaf(go2.transform.DOMove(target.position, 1f), EvalData, true),TreeNodeStatus.SUCCESS));
+        //nodes.Add(BTDecoratorCreator.CreateRepeateUntil(BTLeafCreator.CreateTweenLeaf(go2.transform.DOMove(target.position, 1f), EvalData, true),TreeNodeStatus.SUCCESS));
         sequenceNode = new BTSequenceNode(nodes);
     }
 
     private void Update()
     {
-        if (sequenceNode.nodeStatus == TreeNodeStatus.RUNNING)
-        {
-            sequenceNode.Update(Time.deltaTime);
-        }
+        sequenceNode.Update(Time.deltaTime);
     }
 
     int data;

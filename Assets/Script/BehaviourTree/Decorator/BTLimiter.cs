@@ -20,7 +20,7 @@
             currentTime = 0;
         }
 
-        public override TreeNodeStatus Update(float dt)
+        public override TreeNodeStatus Run(float dt)
         {
             if (currentTime >= time)
             {

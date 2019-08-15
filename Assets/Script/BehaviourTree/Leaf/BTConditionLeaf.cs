@@ -9,10 +9,20 @@ namespace Kultie.BTs
             val = _val;
         }
 
-        public override TreeNodeStatus Update(float dt)
+        public override TreeNodeStatus Run(float dt)
         {
             return val ? TreeNodeStatus.SUCCESS : TreeNodeStatus.FAIL;
         }
-    }
+
+		public override void Start()
+		{
+            UnityEngine.Debug.Log("Start Leaf");
+		}
+
+        public override void Finish()
+        {
+            UnityEngine.Debug.Log("Finish Leaf");
+        }
+	}
 }
 
