@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Kultie.BehaviourTree;
+using Kultie.TimerSystem;
+
 public class Controller : MonoBehaviour {
 
     Root behaviourTree;
     RandomContext context;
+    Timer timer;
 	void Start () {
+        timer = new Timer();
         List<BehaviourBase> sequenceList = new List<BehaviourBase>();
         context = new RandomContext(6);
         //sequenceList.Add(new RandomNumber1(0,10));
-        sequenceList.Add(new Inverter(new RandomNumber1(0, 10)));
+        sequenceList.Add(new After("Wait 2 second for random",2,new RandomNumber1(0, 10),timer));
         sequenceList.Add(new CheckNumber());
         Sequence sequence = new Sequence("Sequence check number",sequenceList);
         behaviourTree = new Root(context, sequence);
@@ -18,7 +22,9 @@ public class Controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        behaviourTree.Update(Time.deltaTime, context);
+        float dt = Time.deltaTime;
+        timer.Update(dt);
+        behaviourTree.Update(dt, context);
 	}
 }
 
@@ -46,6 +52,12 @@ public class RandomNumber1: BehaviourActionBase{
         int currentValue = Random.Range(min, max);
         tmpContext.currentNumber = currentValue;
         _status = Status.SUCCESS;
+        //if(currentValue > 8){
+        //    _status = Status.FAIL;
+        //}
+        //else{
+        //    _status = Status.SUCCESS;
+        //}
         return _status;
     }
 
