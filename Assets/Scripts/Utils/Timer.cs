@@ -24,7 +24,7 @@ namespace Kultie.TimerSystem
         public void After(float delay, Action action, bool repeatable = false, string tag = "")
         {
             TimerElement timer = new TimerElement(delay, action, repeatable);
-            if (string.IsNullOrEmpty(tag)) tag = DateTime.Now.ToString();
+            if (string.IsNullOrEmpty(tag)) tag = Guid.NewGuid().ToString();
             if (dicTimer.ContainsKey(tag))
             {
                 dicTimer[tag] = timer;

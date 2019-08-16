@@ -15,7 +15,7 @@ namespace Kultie.BehaviourTree{
         }
 
 		public override Status Run(float dt, BehaviourContext context)
-		{
+		{ 
             if(readyToRun){
                 Status tmp = behaviour.Update(dt, context);
                 _status = tmp;
@@ -33,7 +33,7 @@ namespace Kultie.BehaviourTree{
             timer.After(duration, () =>
             {
                 readyToRun = true;
-            });
+            },false,name);
 		}
 
 		public override void Finish(Status _status, BehaviourContext context)

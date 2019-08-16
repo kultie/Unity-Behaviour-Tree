@@ -15,16 +15,16 @@ public class Controller : MonoBehaviour {
         context = new RandomContext(6);
         //sequenceList.Add(new RandomNumber1(0,10));
         sequenceList.Add(new After("Wait 2 second for random",2,new RandomNumber1(0, 10),timer));
-        sequenceList.Add(new CheckNumber());
-        Sequence sequence = new Sequence("Sequence check number",sequenceList);
+        sequenceList.Add(new After("Wait 1 second for checking number", 1,new CheckNumber(),timer));
+        Selector sequence = new Selector("Selector check number",sequenceList);
         behaviourTree = new Root(context, sequence);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         float dt = Time.deltaTime;
-        timer.Update(dt);
         behaviourTree.Update(dt, context);
+        timer.Update(dt);
 	}
 }
 
@@ -51,8 +51,8 @@ public class RandomNumber1: BehaviourActionBase{
         RandomContext tmpContext = (RandomContext)context;
         int currentValue = Random.Range(min, max);
         tmpContext.currentNumber = currentValue;
-        _status = Status.SUCCESS;
-        //if(currentValue > 8){
+        _status = Status.FAIL;
+        //if(currentValue < 5){
         //    _status = Status.FAIL;
         //}
         //else{
