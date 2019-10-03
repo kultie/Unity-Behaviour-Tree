@@ -5,12 +5,12 @@ namespace Kultie.BehaviourTree
 {
     public class Root : BehaviourBase
     {
-        BehaviourContext context;
+        BehaviourContext behaviourContext;
         BehaviourBase behaviour;
 
         public Root(BehaviourContext _context, BehaviourBase _behaviour)
         {
-            context = _context;
+            behaviourContext = _context;
             behaviour = _behaviour;
         }
 
@@ -19,9 +19,9 @@ namespace Kultie.BehaviourTree
             return behaviour.Update(dt, context);
         }
 
-        public override void Start(BehaviourContext _context)
+        public override void Start(BehaviourContext context)
         {
-            context = _context;
+            behaviourContext = context;
         }
     }
 
