@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 namespace Kultie.BehaviourTree{
     public class Selector : BehaviourBase
@@ -18,10 +19,17 @@ namespace Kultie.BehaviourTree{
         List<BehaviourBase> behaviours;
         int currentIndex;
 
-        public Selector(string __name, List<BehaviourBase> _behaviours)
+        public Selector(string name, List<BehaviourBase> behaviours)
+        {
+            _name = name;
+            this.behaviours = behaviours;
+            currentIndex = 0;
+        }
+
+        public Selector(string __name, params BehaviourBase[] behaviours)
         {
             _name = __name;
-            behaviours = _behaviours;
+            this.behaviours = behaviours.ToList();
             currentIndex = 0;
         }
 

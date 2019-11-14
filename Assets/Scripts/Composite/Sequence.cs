@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 namespace Kultie.BehaviourTree
 {
@@ -19,10 +20,17 @@ namespace Kultie.BehaviourTree
 
         int currentIndex;
 
-        public Sequence(string __name, List<BehaviourBase> _behaviours)
+        public Sequence(string name, List<BehaviourBase> behaviours)
         {
-            _name = __name;
-            behaviours = _behaviours;
+            _name = name;
+            this.behaviours = behaviours;
+            currentIndex = 0;
+        }
+
+        public Sequence(string name, params BehaviourBase[] behaviours)
+        {
+            _name = name;
+            this.behaviours = behaviours.ToList();
             currentIndex = 0;
         }
 

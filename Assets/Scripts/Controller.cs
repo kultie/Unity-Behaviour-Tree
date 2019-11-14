@@ -14,9 +14,9 @@ public class Controller : MonoBehaviour {
         List<BehaviourBase> sequenceList = new List<BehaviourBase>();
         context = new RandomContext(6);
         //sequenceList.Add(new RandomNumber1(0,10));
-        sequenceList.Add(new After("Wait 2 second for random",2,new RandomNumber1(0, 10),timer));
-        sequenceList.Add(new After("Wait 1 second for checking number", 1,new CheckNumber(),timer));
-        Selector sequence = new Selector("Selector check number",sequenceList);
+        Selector sequence = new Selector("Selector check number",
+            new After("Wait 2 second for random", 2, new RandomNumber1(0, 10), timer),
+            new After("Wait 1 second for checking number", 1, new CheckNumber(), timer));
         behaviourTree = new Root(context, sequence);
 	}
 	
