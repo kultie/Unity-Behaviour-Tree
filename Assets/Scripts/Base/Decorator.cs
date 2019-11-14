@@ -6,14 +6,14 @@ namespace Kultie.BehaviourTree
 {
     public abstract class Decorator : BehaviourBase
     {
-        public string name { get; private set; }
+        protected string name { get; private set; }
 
-        public BehaviourBase behaviour { get; private set; }
+        protected BehaviourBase behaviour { get; private set; }
 
-        public void Create(string __name, BehaviourBase _behaviour)
+        public void Create(string name, BehaviourBase behaviour)
         {
-            name = __name;
-            behaviour = _behaviour;
+            this.name = name;
+            this.behaviour = behaviour;
         }
     }
 }

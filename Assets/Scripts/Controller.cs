@@ -67,7 +67,7 @@ public class RandomNumber1: BehaviourActionBase{
         Debug.Log("Target number is: " + tmpContext.targetNumber);
 	}
 
-	public override void Finish(Status _status, BehaviourContext context)
+	public override void Finish(Status status, BehaviourContext context)
 	{
         RandomContext tmpContext = (RandomContext)context;
         Debug.Log("Status: " + _status);
@@ -101,7 +101,7 @@ public class CheckNumber : BehaviourActionBase
         Debug.Log(name +  "Target number is: " + tmpContext.targetNumber + "Current number: " + tmpContext.currentNumber);
     }
 
-    public override void Finish(Status _status, BehaviourContext context)
+    public override void Finish(Status status, BehaviourContext context)
     {
         RandomContext tmpContext = (RandomContext)context;
         Debug.Log("Status: " + _status);

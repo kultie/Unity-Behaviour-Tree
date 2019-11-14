@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 namespace Kultie.BehaviourTree{
-    public class BehaviourActionBase : BehaviourBase
+    public abstract class BehaviourActionBase : BehaviourBase
     {
         protected string _name;
 
@@ -12,13 +12,8 @@ namespace Kultie.BehaviourTree{
             }
         }
 
-        public void Create(string __name){
-            _name = __name;
-        }
-
-        public override Status Run(float dt, BehaviourContext context)
-        {
-            throw new System.NotImplementedException();
+        public void Create(string name){
+            _name = name;
         }
     }
 }

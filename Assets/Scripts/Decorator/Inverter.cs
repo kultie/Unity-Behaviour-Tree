@@ -27,7 +27,7 @@ namespace Kultie.BehaviourTree
             return _status;
         }
 
-		public override void Finish(Status _status, BehaviourContext context)
+		public override void Finish(Status status, BehaviourContext context)
 		{
             Debug.Log("Finish Inverter: " + _status);
 		}

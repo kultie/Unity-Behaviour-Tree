@@ -36,7 +36,7 @@ namespace Kultie.BehaviourTree{
             },false,name);
 		}
 
-		public override void Finish(Status _status, BehaviourContext context)
+		public override void Finish(Status status, BehaviourContext context)
 		{
             readyToRun = false;
             Debug.Log("Finishing After behaviour: " + name);

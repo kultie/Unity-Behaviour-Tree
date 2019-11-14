@@ -42,7 +42,7 @@ namespace Kultie.BehaviourTree
         }
 
 
-        public virtual void Finish(Status _status, BehaviourContext context)
+        public virtual void Finish(Status status, BehaviourContext context)
         {
 
         }
