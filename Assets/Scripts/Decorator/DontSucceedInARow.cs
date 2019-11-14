@@ -5,9 +5,8 @@ namespace Kultie.BehaviourTree{
     public class DontSucceedInARow : Decorator
     {
         Status pastStatus;
-        public DontSucceedInARow(BehaviourBase _behaviour)
+        public DontSucceedInARow(BehaviourBase behaviour) : base("DontSucceedInARow", behaviour)
         {
-            Create("DontSucceedInARow", _behaviour);
             pastStatus = Status.INVALID;
         }
 

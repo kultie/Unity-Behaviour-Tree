@@ -12,7 +12,7 @@ namespace Kultie.BehaviourTree{
             }
         }
 
-        public void Create(string name){
+        public Action(string name) {
             _name = name;
         }
     }

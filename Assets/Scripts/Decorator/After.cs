@@ -7,11 +7,10 @@ namespace Kultie.BehaviourTree{
         bool readyToRun;
         Timer timer;
 
-        public After(string _name, float _duration, BehaviourBase _behaviour, Timer _timer){
-            Create(_name, _behaviour);
+        public After(string name, float duration, BehaviourBase behaviour, Timer timer) : base(name,behaviour){
             readyToRun = false;
-            duration = _duration;
-            timer = _timer;
+            this.duration = duration;
+            this.timer = timer;
         }
 
 		public override Status Run(float dt, BehaviourContext context)

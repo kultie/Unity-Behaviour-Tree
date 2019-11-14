@@ -6,14 +6,14 @@ namespace Kultie.BehaviourTree
 {
     public class Sequence : Composite
     {
-        public Sequence(string name, List<BehaviourBase> behaviours)
+        public Sequence(string name, List<BehaviourBase> behaviours) : base(name, behaviours)
         {
-            Create("Sequence: " + name, behaviours);
+
         }
 
-        public Sequence(string name, params BehaviourBase[] behaviours)
+        public Sequence(string name, params BehaviourBase[] behaviours) : base(name, behaviours)
         {
-            Create("Sequence: " + name, behaviours);
+
         }
 
         public override Status Run(float dt, BehaviourContext context)

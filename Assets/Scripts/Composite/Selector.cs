@@ -6,14 +6,14 @@ namespace Kultie.BehaviourTree{
     public class Selector : Composite
     {
 
-        public Selector(string name, List<BehaviourBase> behaviours)
+        public Selector(string name, List<BehaviourBase> behaviours) : base(name,behaviours)
         {
-            Create(name, behaviours);
+
         }
 
-        public Selector(string name, params BehaviourBase[] behaviours)
+        public Selector(string name, params BehaviourBase[] behaviours) : base(name, behaviours)
         {
-            Create(name, behaviours);
+
         }
 
         public override Status Run(float dt, BehaviourContext context)

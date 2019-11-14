@@ -10,7 +10,7 @@ namespace Kultie.BehaviourTree
 
         protected BehaviourBase behaviour { get; private set; }
 
-        public void Create(string name, BehaviourBase behaviour)
+        protected Decorator(string name, BehaviourBase behaviour)
         {
             this.name = name;
             this.behaviour = behaviour;

@@ -5,9 +5,9 @@ namespace Kultie.BehaviourTree
 {
     public class Inverter : Decorator
     {
-        public Inverter(BehaviourBase _behaviour)
+        public Inverter(BehaviourBase behaviour) : base("Inverter", behaviour)
         {
-            Create("Inverter", _behaviour);
+
         }
 
         public override Status Run(float dt, BehaviourContext context)

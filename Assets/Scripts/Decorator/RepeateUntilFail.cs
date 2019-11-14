@@ -6,9 +6,9 @@ namespace Kultie.BehaviourTree
     public class RepeateUntilFail : Decorator
     {
 
-        public RepeateUntilFail(BehaviourBase _behaviour)
+        public RepeateUntilFail(BehaviourBase behaviour) : base("RepeateUntilFail", behaviour)
         {
-            Create("RepeateUntilFail", _behaviour);
+
         }
 
         public override Status Run(float dt, BehaviourContext context)

@@ -11,7 +11,6 @@ public class Controller : MonoBehaviour {
     Timer timer;
 	void Start () {
         timer = new Timer();
-        List<BehaviourBase> sequenceList = new List<BehaviourBase>();
         context = new RandomContext(6);
         //sequenceList.Add(new RandomNumber1(0,10));
         Selector sequence = new Selector("Selector check number",
@@ -37,11 +36,10 @@ public class RandomContext: BehaviourContext{
     }
 }
 
-public class RandomNumber1: BehaviourActionBase{
+public class RandomNumber1: Action{
     int min;
     int max;
-    public RandomNumber1(int _min, int _max){
-        Create("Random Number");
+    public RandomNumber1(int _min, int _max): base("Random number"){
         min = _min;
         max = _max;
     }
@@ -52,12 +50,6 @@ public class RandomNumber1: BehaviourActionBase{
         int currentValue = Random.Range(min, max);
         tmpContext.currentNumber = currentValue;
         _status = Status.FAIL;
-        //if(currentValue < 5){
-        //    _status = Status.FAIL;
-        //}
-        //else{
-        //    _status = Status.SUCCESS;
-        //}
         return _status;
     }
 
@@ -75,10 +67,9 @@ public class RandomNumber1: BehaviourActionBase{
 	}
 }
 
-public class CheckNumber : BehaviourActionBase
+public class CheckNumber : Action
 {
-    public CheckNumber(){
-        Create("Check Number");
+    public CheckNumber(): base("Check Number"){
     }
 
     public override Status Run(float dt, BehaviourContext context)

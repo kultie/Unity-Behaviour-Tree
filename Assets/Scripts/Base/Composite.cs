@@ -10,14 +10,14 @@ public abstract class Composite : BehaviourBase {
 
     protected int currentIndex = 0;
 
-    protected void Create(string name, List<BehaviourBase> behaviours)
+    protected Composite(string name, List<BehaviourBase> behaviours)
     {
         this.name = name;
         this.behaviours = behaviours;
         currentIndex = 0;
     }
 
-    protected void Create(string name, params BehaviourBase[] behaviours)
+    protected Composite(string name, params BehaviourBase[] behaviours)
     {
         this.name = name;
         this.behaviours = behaviours.ToList();
