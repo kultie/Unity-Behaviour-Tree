@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 namespace Kultie.BehaviourTree{
-    public abstract class BehaviourActionBase : BehaviourBase
+    public abstract class Action : BehaviourBase
     {
         protected string _name;
 
