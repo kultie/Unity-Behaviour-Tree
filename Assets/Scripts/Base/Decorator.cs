@@ -15,11 +15,5 @@ namespace Kultie.BehaviourTree
             name = __name;
             behaviour = _behaviour;
         }
-
-        public override Status Run(float dt, BehaviourContext context)
-        {
-            throw new System.NotImplementedException();
-        }
     }
-
 }
