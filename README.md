@@ -24,12 +24,14 @@ Kultie.BehaviourTree
 ## Composite Node
 - Node that contains nodes, these node are the "direction" for the tree
 - Create by list of nodes or using params in c#
-- There are already built-in Sequence and Selector.
 - Create your own Composite Node by extending Composite class
+- There are already built-in Sequence and Selector node
+
 
 ## Decorator Node
 - Node that change the result of Action Node
 - Create your own Decorator Node by extending Decorator class
+- There are already built-in After, DontSucceddInARow, Inverter, RepeateUntilFail node
 
 # How to Use
 - Create how many nodes as you want
