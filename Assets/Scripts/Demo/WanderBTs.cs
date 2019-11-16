@@ -12,7 +12,7 @@ public class WanderBTs : MonoBehaviour {
             go = obj
         };
 
-        root = new Root(context, new Selector("Wander",
+        root = new Root(context, new Sequence("Wander",
                                 new FindWanderPointAction(obj.transform.position.x, obj.transform.position.y, 2, "Finding Point"),
                                 new MoveToPointAction("Moving")));
 

@@ -23,7 +23,7 @@ public class FindWanderPointAction : Action
         WanderContext _context = (WanderContext)context;
 
         _context.moveToTarget = new Vector2(this.x + distance * Mathf.Cos(angle), this.y + distance * Mathf.Sin(angle));
-        _status = Status.FAIL;
+        _status = Status.SUCCESS;
         return _status;
     }
 }
