@@ -11,7 +11,7 @@ Kultie.BehaviourTree
 ## Context
 - All the data for the tree will contains in here.
 - All node in the tree will use this as the intermediate to communicate with eachother
-- Create your own Context and extending it by BehaviourContext class
+- Create your own Context and extending it with BehaviourContext class
 
 ## Root
 - Root of the tree, these just a place holder and make sense for all you english speaker since tree start will composite node is not understandable
