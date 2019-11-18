@@ -6,9 +6,11 @@ using Kultie.TimerSystem;
 public class ChangeColorAction : Action
 {
     bool done = false;
-    public ChangeColorAction() : base("ChangeColor")
+    Color color;
+    public ChangeColorAction(Color color) : base("ChangeColor")
     {
         done = false;
+        this.color = color;
     }
 
     public override Status Run(float dt, BehaviourContext context)
@@ -29,12 +31,12 @@ public class ChangeColorAction : Action
         GameObject target = _context.aroundGO;
         SpriteRenderer renderer = target.GetComponent<SpriteRenderer>();
 
-        renderer.color = Color.blue;
+        renderer.color = color;
 
         Timer timer = _context.timer;
         timer.After(2, () =>
         {
-            renderer.color = Color.red;
+            renderer.color = Color.white;
             done = true;
         });
     }

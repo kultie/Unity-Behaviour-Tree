@@ -15,10 +15,13 @@ public class WanderBTs : MonoBehaviour {
         };
 
         root = new Root(context, new Selector("idle",
-                                             new Sequence("Change color",
-                                                new DontSucceedInARow(new AnyAroundAction("Enemies", 1)),
-                                                new MoveToPointAction(),
-                                                new ChangeColorAction()
+                                             new Sequence("Change enemies color",
+                                                FindAndMoveTo("Enemies", 1.5f),
+                                                new ChangeColorAction(Color.red)
+                                             ),
+                                             new Sequence("Change friends color",
+                                                FindAndMoveTo("Player", 1f),
+                                                new ChangeColorAction(Color.blue)
                                              ),
                                              new Sequence("wander",
                                                 new FindWanderPointAction(obj.transform.position.x, obj.transform.position.y, 2),
@@ -38,7 +41,16 @@ public class WanderBTs : MonoBehaviour {
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(obj.transform.position, 1);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(obj.transform.position, 1.5f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(obj.transform.position, 1f);
+    }
+
+    Composite FindAndMoveTo(string key, float radius) {
+        return new Sequence("Find And Move To",
+                            new DontSucceedInARow(new AnyAroundAction(key, radius)),
+                            new MoveToPointAction());
     }
 }
 
