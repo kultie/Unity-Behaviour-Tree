@@ -8,7 +8,7 @@ public class FindWanderPointAction : Action
     float y;
     float radius;
 
-    public FindWanderPointAction(float x, float y, float radius ,string name) : base(name)
+    public FindWanderPointAction(float x, float y, float radius) : base("Finding Point")
     {
         this.x = x;
         this.y = y;

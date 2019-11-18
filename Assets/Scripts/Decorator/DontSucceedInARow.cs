@@ -29,12 +29,12 @@ namespace Kultie.BehaviourTree{
 
         public override void Start(BehaviourContext context)
         {
-            Debug.Log("Start " + name);
+
         }
 
         public override void Finish(Status status, BehaviourContext context)
         {
-            Debug.Log("Finish " + name + " Status: " + _status);
+
         }
     }
 }

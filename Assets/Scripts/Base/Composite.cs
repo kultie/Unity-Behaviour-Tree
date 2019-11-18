@@ -29,11 +29,9 @@ public abstract class Composite : BehaviourBase {
     {
         currentIndex = 0;
         _status = Status.RUNNING;
-        Debug.Log("--------------------------------Start: " + name + "--------------------------------------");
     }
 
     public override void Finish(Status status, BehaviourContext context)
     {
-        Debug.Log("--------------------------------Finish: " + name + " Status: " + _status + "--------------------------------------");
     }
 }

@@ -5,7 +5,7 @@ using Kultie.BehaviourTree;
 public class MoveToPointAction : Action
 {
     float speed = 5;
-    public MoveToPointAction(string name) : base(name)
+    public MoveToPointAction() : base("Move")
     {
 
     }
