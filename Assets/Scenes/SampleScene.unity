@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 569099656}
   - component: {fileID: 569099655}
   - component: {fileID: 569099654}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite (4)
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 697660904}
   - component: {fileID: 697660903}
   - component: {fileID: 697660902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite (1)
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 878990813}
   - component: {fileID: 878990812}
   - component: {fileID: 878990811}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite (6)
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 1105306669}
   - component: {fileID: 1105306668}
   - component: {fileID: 1105306667}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite (2)
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 1194714409}
   - component: {fileID: 1194714408}
   - component: {fileID: 1194714407}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite (5)
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 1472061829}
   - component: {fileID: 1472061828}
   - component: {fileID: 1472061827}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite (3)
   m_TagString: Enemies
   m_Icon: {fileID: 0}
