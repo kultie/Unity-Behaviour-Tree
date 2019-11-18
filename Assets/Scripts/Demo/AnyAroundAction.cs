@@ -6,6 +6,7 @@ public class AnyAroundAction : Action
 {
     string tag;
     float radius;
+    List<Collider2D> colliders = new List<Collider2D>();
     public AnyAroundAction(string tag, float radius) : base("Any Around")
     {
         this.tag = tag;
@@ -22,13 +23,23 @@ public class AnyAroundAction : Action
             return Status.FAIL;
         }
         else {
-            GameObject entity = entities[Random.Range(0, entities.Length)].gameObject;
-            while (entity.Equals(_context.go)) {
-                entity = entities[Random.Range(0, entities.Length)].gameObject;
+            for (int i = 0; i < entities.Length; i++) {
+                if (entities[i].gameObject.CompareTag(tag)) {
+                    colliders.Add(entities[i]);
+                }
             }
-            _context.aroundGO = entity;
-            _context.moveToTarget = _context.aroundGO.transform.position;
-            return Status.SUCCESS;
+            if (colliders.Count > 0) {
+                GameObject entity = colliders[Random.Range(0, colliders.Count)].gameObject;
+                _context.aroundGO = entity;
+                _context.moveToTarget = _context.aroundGO.transform.position;
+                return Status.SUCCESS;
+            }
+            return Status.FAIL;
         }
+    }
+
+    public override void Start(BehaviourContext context)
+    {
+        colliders.Clear();
     }
 }
