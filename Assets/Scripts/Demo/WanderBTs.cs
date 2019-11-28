@@ -15,6 +15,21 @@ public class WanderBTs : MonoBehaviour {
         };
 
         root = new Root(context, new Selector("idle",
+                                             new Sequence("Fighting animal",
+                                                new AnyAroundAction("Animal",0.5f),
+                                                new RepeateUntilFail(
+                                                    new Sequence("Chasing animal",
+                                                        new AnyAroundAction("Animal",0.5f),
+                                                        new Parallel("Chase",ParallelPocity.ALL,ParallelPocity.ALL,
+                                                            new DebugAction("I'm chasing"),
+                                                            new Sequence("Attacking",
+                                                                new AnyAroundAction("Animal", 0.25f),
+                                                                new ChangeColorAction(Color.yellow)
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                             ),
                                              new Sequence("Change enemies color",
                                                 FindAndMoveTo("Enemies", 1.5f),
                                                 new ChangeColorAction(Color.red)
@@ -45,6 +60,10 @@ public class WanderBTs : MonoBehaviour {
         Gizmos.DrawWireSphere(obj.transform.position, 1.5f);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(obj.transform.position, 1f);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(obj.transform.position, 0.5f);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(obj.transform.position, 0.25f);
     }
 
     Composite FindAndMoveTo(string key, float radius) {

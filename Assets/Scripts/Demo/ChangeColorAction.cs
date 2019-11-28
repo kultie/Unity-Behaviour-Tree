@@ -27,13 +27,12 @@ public class ChangeColorAction : Action
     public override void Start(BehaviourContext context)
     {
         WanderContext _context = (WanderContext)context;
-
-        GameObject target = _context.aroundGO;
-        SpriteRenderer renderer = target.GetComponent<SpriteRenderer>();
-
-        renderer.color = color;
-
         Timer timer = _context.timer;
+
+        GameObject _target = _context.aroundGO;
+
+        SpriteRenderer renderer = _target.GetComponent<SpriteRenderer>();
+        renderer.color = color;
         timer.After(2, () =>
         {
             renderer.color = Color.white;
