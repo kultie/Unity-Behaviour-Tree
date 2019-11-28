@@ -16,6 +16,7 @@ public class WanderBTs : MonoBehaviour {
 
         root = new Root(context, new Selector("idle",
                                              new Sequence("Fighting animal",
+                                                new DebugAction(Time.frameCount.ToString()),
                                                 new AnyAroundAction("Animal",0.5f),
                                                 new RepeateUntilFail(
                                                     new Sequence("Chasing animal",
